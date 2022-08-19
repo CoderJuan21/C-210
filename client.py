@@ -21,19 +21,20 @@ text_message = None
 def connectWithClient():
     global SERVER
     global listbox
-    text = listbox.get(ANCHOR)
+
+    text=listbox.get(ANCHOR)
     list_item = text.split(":")
-    msg = "connect" + list_item[1]
-    SERVER.send(msg.encode("ascii"))
+    msg="connect "+list_item[1]
+    SERVER.send(msg.encode('ascii'))
 
 
 def disconnectWithClient():
     global SERVER
-    global listbox
-    text = listbox.get(ANCHOR)
+
+    text=listbox.get(ANCHOR)
     list_item = text.split(":")
-    msg = "disconnect" + list_item[1]
-    SERVER.send(msg.encode("ascii"))
+    msg="disconnect "+list_item[1]
+    SERVER.send(msg.encode('ascii'))
 
 
 def receiveMessage():
@@ -114,7 +115,7 @@ def openChatWindow():
     connectButton.place(x=282,y=160)
 
    
-    disconnectButton=Button(window,text="Disconnect",bd=1, command=disconnectWithClient, font = ("Calibri",10))
+    disconnectButton=Button(window,text="Disconnect",bd=1, font = ("Calibri",10), command = disconnectWithClient)
     disconnectButton.place(x=350,y=160)
 
  
